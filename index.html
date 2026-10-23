@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Calculadora IRPF · FETICO</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="top-line"></div>
+
+<header class="top">
+  <img src="logo.png" alt="FETICO" class="logo">
+  <div class="heading">
+    <span>FETICO · HERRAMIENTA INFORMATIVA</span>
+    <h1>Calculadora IRPF</h1>
+  </div>
+</header>
+
+<main>
+  <section class="calculator">
+    <div class="display">
+      <div class="display-label">TIPO DE RETENCIÓN ESTIMADO</div>
+      <div id="rate" class="display-rate">—</div>
+      <div class="display-bottom">
+        <div><small>RETENCIÓN ANUAL</small><b id="annual">—</b></div>
+        <div><small>RETENCIÓN / MES</small><b id="monthly">—</b></div>
+      </div>
+    </div>
+
+    <div class="inputs">
+      <div class="input-head">
+        <div class="number">01</div>
+        <div><h2>Introduce tus datos</h2><p>Modifica los campos necesarios para calcular tu retención.</p></div>
+      </div>
+
+      <div class="keypad">
+        <label class="key wide">Ingreso bruto anual
+          <span class="input-wrap"><input id="gross" type="number" min="0" step="0.01" value="22700"><em>€</em></span>
+        </label>
+        <label class="key">Situación monoparental
+          <select id="mono"><option>NO</option><option>SI</option></select>
+        </label>
+        <label class="key">Hijos menores de 25 años
+          <input id="children" type="number" min="0" step="1" value="1">
+        </label>
+        <label class="key">Hijos menores de 3 años
+          <input id="under3" type="number" min="0" step="1" value="0">
+        </label>
+        <label class="key">Hijos con discapacidad
+          <input id="childDis" type="number" min="0" step="1" value="0">
+        </label>
+      </div>
+    </div>
+
+    <div class="inputs secondary">
+      <div class="input-head">
+        <div class="number">02</div>
+        <div><h2>Ascendientes</h2><p>Solo completa estos campos si corresponde.</p></div>
+      </div>
+      <div class="keypad">
+        <label class="key">Entre 65 y 75 años
+          <input id="asc65" type="number" min="0" step="1" value="0">
+        </label>
+        <label class="key">Discapacidad 65–75
+          <select id="ascDis65"><option>NO</option><option>MAYOR 33%</option><option>MAYOR 65%</option></select>
+        </label>
+        <label class="key">Ayuda / movilidad 65–75
+          <select id="ascHelp65"><option>NO</option><option>SI</option></select>
+        </label>
+        <label class="key">Mayores de 75 años
+          <input id="asc75" type="number" min="0" step="1" value="0">
+        </label>
+        <label class="key">Discapacidad +75
+          <select id="ascDis75"><option>NO</option><option>MAYOR 33%</option><option>MAYOR 65%</option></select>
+        </label>
+        <label class="key">Ayuda / movilidad +75
+          <select id="ascHelp75"><option>NO</option><option>SI</option></select>
+        </label>
+      </div>
+    </div>
+
+    <button id="toggle" class="breakdown-btn">VER DESGLOSE <span>＋</span></button>
+    <div id="detailBody" class="details" hidden></div>
+  </section>
+
+  <div class="notice">Resultado orientativo. La retención definitiva puede variar según las circunstancias comunicadas a la empresa y el cálculo oficial.</div>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
